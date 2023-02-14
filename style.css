@@ -3,18 +3,26 @@
     --Heading1: font-family: 'Abril Fatface', cursive;
     --Heading2: font-family: 'Manjari', sans-serif;
     --mainContent: font-family: 'Poiret One', cursive;
-    --blue: #b9EBFF;
-    --yellow: #FFE995;
-    --white: #F5F1DD;
+    --blue: #cae0e9;
     --black: #031e33;
-    --grey: #b4b9bb;
+    --grey: #c7c6c6;
 
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    font-family: var(--mainContent);
+    background-color: white;
 }
-
-body {}
+.navbar{
+    background-color: var(--blue);
+}
+.navbar-brand{
+    font-family: var(--Heading1);
+    font-size: 2rem;
+    color: var(--black);
+}
+.card{
+    border-radius: 15px;
+    border: 2px solid var(--blue);
+    margin: 5px;
+}
