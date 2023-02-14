@@ -1,24 +1,21 @@
 :root {
-
-    --Heading1: font-family: 'Abril Fatface', cursive;
-    --Heading2: font-family: 'Manjari', sans-serif;
+    --Heading2: 'Manjari', sans-serif;
     --mainContent: font-family: 'Poiret One', cursive;
     --blue: #cae0e9;
     --black: #031e33;
     --grey: #c7c6c6;
-
 }
 
 body {
-    font-family: var(--mainContent);
+    font-family: var(--Heading2);
     background-color: white;
 }
 .navbar{
     background-color: var(--blue);
 }
 .navbar-brand{
-    font-family: var(--Heading1);
-    font-size: 2rem;
+    font-family: var(--Heading2);
+    font-size: 2.5rem;
     color: var(--black);
 }
 .card{
