@@ -8,19 +8,18 @@ let citySel = document.getElementById('city-selected')
 
 
 //icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-//Geo:
-//let geo = `http://api.openweathermap.org/geo/1.0/reverse?lat=`+ lat +`&lon` + lon + `&limit={limit}&appid=481a34aaa4773c2f5214835ab96af44d`;
 //Weather API:
-var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=481a34aaa4773c2f5214835ab96af44d`;
+var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=4ab93242dec1348d0b0205c9c67aca26`;
+//var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=London&appid=4ab93242dec1348d0b0205c9c67aca26`;
 
- citySel.addEventListener('click', function(){
+ citySel.addEventListener('submit', function(){
     console.log(apiUrl);
  })
 fetch(apiUrl)
 .then(function(response){
      if(response.ok){
         console.log(response);
-        response.json();
+         return response.json();
         //.then(function(data){
            // displayRepos(data,user);
        // })
@@ -29,6 +28,18 @@ fetch(apiUrl)
 .then(function(data){
     console.log(data);
 })
+
+function getGeo(){
+    var geoAPI = 'http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}';
+    fetch(geoAPI)
+    .then(function(response){
+        console.log('GEOAPI'+response)
+        return response.json();
+    })
+    .then(function(data){
+
+    })
+}
 //Store the results in localStorage
 
 //Click on the search button to start loading the content
@@ -65,30 +76,26 @@ fetch(apiUrl)
 
 //}
 
-function fiveDayWeather(){
-  //  let fiveDays = daily[1]
+function fiveDayWeather(data){
+// let fiveDays = daily[1]
   for(var i = 1; i < 6; i++){
-    //The city for the main card
-   
-   //let card = document.getElementByClassName('card');
-   //Need to do the date for the main one only:
+ 
+   //let card = document.getElementByClassName('card');   
+   let tempEl = document.createElement('h2');
+   tempEl.classList = 'temperature';
+   tempEl.textContent = data[i].main.temp;
 
-   //What Temperature it is:
-   //let tempEl = document.createElement('h2');
-   //tempEl.classList = 'temperature';
-   //tempEl.textContent = data[i].  ;
-   //Sets the humidity:
-   //let humidityEl = document.createElement('h2');
-   //humidityEl.classList = 'humidity';
-   //humidityEl.textContent = data[i].  ;
-   ////What the wind speed is:
-   //let windEl = document.createElement('h2');
-   //windEl.classList = 'wind';
-   //windEl.textContent = data[i].   ;
+   let humidityEl = document.createElement('h2');
+   humidityEl.classList = 'humidity';
+   humidityEl.textContent = data[i].main.humidity;
+
+   let windEl = document.createElement('h2');
+   windEl.classList = 'wind';
+   windEl.textContent = data[i].wind.speed;
 
    //card.appendChild(tempEl, humidityEl, windEl);
    //repoContainerEl.appendChild(card);
-fiveDayConts.append()
+//fiveDayConts.append()
 }}
 
 //Function that loads the content
@@ -106,7 +113,6 @@ function todaysWeather(){
     todayCont.append(cityEl,dateEl, iconEl, tempEl, windEl, humidityEl);
 
 }
-
 //stores results in a panel:
 function showSearched(){
     let searchedCities = JSON.parse(localStorage.getItem('savedCities'));

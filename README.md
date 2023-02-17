@@ -17,10 +17,10 @@ Coming Soon
 Coming Soon
 
 ## Difficulites:
-This project was really hard for some parts, but overall I think that my JavaScript skills are improving a lot, I'm understanding how the JS language executes and what to put into the code, I did a lot of pseudocoding for this one and I think that it helped.
+This project was really hard for some parts like getting a invalid API key to work I watch hours of videos about building this and someone said something about postman, and how that checks your API key, because no matter what I did to my url it kept throwing an error at me, and I was told many times that I was writing my code wrong and to do this and that when I knew for a fact it should be returning data in some sort when you console.log() the url that your requesting, turns out it was invalid API key which I learned on postman, couldn't tell you why it was invalid but it was. But overall I think that my JavaScript skills are improving a lot, I'm understanding how the JS language executes and what to put into the code, I did a lot of pseudocoding for this one and I think that it helped.
 
 ## What I Learned:
-Things that I learned on this project are server side API keys, using the fetch method, 
+Things that I learned on this project are server side API keys, using the fetch method, I learned to check API keys on postman to save you hours of frustration.
 
 ## Why It Stands Out:
 I think my project stands out because it has super cute styling.
