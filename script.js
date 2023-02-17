@@ -2,10 +2,12 @@
 let searchBtn = document.getElementById('search-btn');
 let citySel = document.getElementById('city-selected');
 let storedCities = [];
+let APIKEY = '481a34aaa4773c2f5214835ab96af44d';
 //icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
 //Weather API:
-var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=${citySel}&appid=481a34aaa4773c2f5214835ab96af44d';
+var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=${citySel}&appid={APIKEY}';
+
 
 fetch(apiUrl)
 .then(function(response){
