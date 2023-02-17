@@ -2,13 +2,16 @@
 let searchBtn = document.getElementById('search-btn');
 let citySel = document.getElementById('city-selected');
 let storedCities = [];
-let APIKEY = '481a34aaa4773c2f5214835ab96af44d';
+let APIKEY = '';
 //icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-
+//Geo:
+let geo = `http://api.openweathermap.org/geo/1.0/reverse?lat=`+ lat +`&lon` + lon + `&limit={limit}&appid=481a34aaa4773c2f5214835ab96af44d`;
 //Weather API:
-var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=${citySel}&appid={APIKEY}';
+var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=481a34aaa4773c2f5214835ab96af44d`;
 
-
+ citySel.addEventListener('click', function(){
+    console.log(apiUrl);
+ })
 fetch(apiUrl)
 .then(function(response){
      if(response.status === 200){
@@ -90,7 +93,7 @@ fetch(apiUrl)
 //Function that loads the content
 
 
-//stores results in a panel
+//stres results in a panel
 
 
 
