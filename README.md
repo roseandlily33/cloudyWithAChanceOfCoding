@@ -17,12 +17,21 @@ Coming Soon
 Coming Soon
 
 ## Difficulites:
+This project was really hard for some parts, but overall I think that my JavaScript skills are improving a lot, I'm understanding how the JS language executes and what to put into the code, I did a lot of pseudocoding for this one and I think that it helped.
 
 ## What I Learned:
+Things that I learned on this project are server side API keys, using the fetch method, 
 
 ## Why It Stands Out:
+I think my project stands out because it has super cute styling.
 
 ## Usage:
+Type in a city, and it will dynamically appear on the screen, and be saved in your local storage. 
+
+## Helpful Resources:
+This video from Steve Griffith on youtube:
+https://www.youtube.com/watch?v=nGVoHEZojiQ
+
 
 ## License: 
 MIT

@@ -1,11 +1,15 @@
 //Document selectors:
 let searchBtn = document.getElementById('search-btn');
-let citySel = document.getElementById('city-selected');
+let searchCont = document.getElementById('searchCont');
+let todayCont = document.getElementById('todaysWeather');
+let fiveDayConts = document.getElementById('bottomCard')
 let storedCities = [];
-let APIKEY = '';
+let citySel = document.getElementById('city-selected')
+
+
 //icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 //Geo:
-let geo = `http://api.openweathermap.org/geo/1.0/reverse?lat=`+ lat +`&lon` + lon + `&limit={limit}&appid=481a34aaa4773c2f5214835ab96af44d`;
+//let geo = `http://api.openweathermap.org/geo/1.0/reverse?lat=`+ lat +`&lon` + lon + `&limit={limit}&appid=481a34aaa4773c2f5214835ab96af44d`;
 //Weather API:
 var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=481a34aaa4773c2f5214835ab96af44d`;
 
@@ -14,7 +18,7 @@ var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+
  })
 fetch(apiUrl)
 .then(function(response){
-     if(response.status === 200){
+     if(response.ok){
         console.log(response);
         response.json();
         //.then(function(data){
@@ -26,11 +30,6 @@ fetch(apiUrl)
     console.log(data);
 })
 //Store the results in localStorage
-
-
-//Fetch and Parse the data:
-
-
 
 //Click on the search button to start loading the content
 //searchBtn.addEventListener('click', storeCity);
@@ -66,11 +65,11 @@ fetch(apiUrl)
 
 //}
 
-
-//for(var i = 0; i < data.length; i++){
+function fiveDayWeather(){
+  //  let fiveDays = daily[1]
+  for(var i = 1; i < 6; i++){
     //The city for the main card
-
-
+   
    //let card = document.getElementByClassName('card');
    //Need to do the date for the main one only:
 
@@ -88,12 +87,41 @@ fetch(apiUrl)
    //windEl.textContent = data[i].   ;
 
    //card.appendChild(tempEl, humidityEl, windEl);
-   //repoContainerEl.appendChild(card);}
+   //repoContainerEl.appendChild(card);
+fiveDayConts.append()
+}}
 
 //Function that loads the content
+function todaysWeather(){
+    let today = daily[0];
+    console.log(today);
+    todayCont.innerHTML = '';
+    let cityEl = document.createElement('h1');
+    let dateEl = document.createElement('h2')
+    let iconEl = document.createElement('img');
+    let tempEl = document.createElement('h2');
+    let windEl = document.createElement('h2');
+    let humidityEl = document.createElement('h2');
 
+    todayCont.append(cityEl,dateEl, iconEl, tempEl, windEl, humidityEl);
 
-//stres results in a panel
+}
+
+//stores results in a panel:
+function showSearched(){
+    let searchedCities = JSON.parse(localStorage.getItem('savedCities'));
+    if(searchedCities !== null){
+        for(let i = 0; i < storedCities.length; i++){
+            let newListItem = document.createElement('li');
+            let cityName = storedCities[i];
+            newListItem.textContent(cityName);
+         searchCont.append(newListItem);
+        }
+
+    } else {
+        return;
+    } 
+};
 
 
 
