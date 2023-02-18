@@ -3,70 +3,62 @@ let searchBtn = document.getElementById('search-btn');
 let searchCont = document.getElementById('searchCont');
 let todayCont = document.getElementById('todaysWeather');
 let fiveDayConts = document.getElementById('bottomCard')
-let storedCities = [];
 let citySel = document.getElementById('city-selected')
 
+//Event Listeners:
+citySel.addEventListener('submit', function(){
+   // console.log(apiUrl);
+ });
+ searchBtn.addEventListener('click', storeCity);
+ //Variables:
+ let storedCities = [];
 
 //icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-//Weather API:
-var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=4ab93242dec1348d0b0205c9c67aca26`;
-//var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=London&appid=4ab93242dec1348d0b0205c9c67aca26`;
 
- citySel.addEventListener('submit', function(){
-    console.log(apiUrl);
- })
+
+//Gets the weather api:
+function getWeather(){
+
+    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=4ab93242dec1348d0b0205c9c67aca26`;
+    //var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=London&appid=4ab93242dec1348d0b0205c9c67aca26`;
+
 fetch(apiUrl)
-.then(function(response){
+  .then(function(response){
      if(response.ok){
         console.log(response);
          return response.json();
-        //.then(function(data){
-           // displayRepos(data,user);
-       // })
-    } //else {alert('Error' + response.status)}
-})
-.then(function(data){
-    console.log(data);
-})
-
+    } else {alert('Error' + response.status)}})
+  .then(function(data){
+    console.log('APIDATA:'+ data);
+       // displayRepos(data,user);
+       //Can do something with the data returne
+    })
+}
+//Gets the geographical thing:
 function getGeo(){
     var geoAPI = 'http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}';
     fetch(geoAPI)
     .then(function(response){
+        if(response.ok){
         console.log('GEOAPI'+response)
-        return response.json();
+        return response.json();}
     })
     .then(function(data){
+        console.log('GEOAPI' + data);
+        //do something with the geo data
 
     })
 }
-//Store the results in localStorage
+//Run when the submit button is pressed:
+function storeCity(e){
+      e.preventDefault();
+      var citySearched = citySel.value.trim();
 
-//Click on the search button to start loading the content
-//searchBtn.addEventListener('click', storeCity);
-//Stores the search and puts it in the box:
-//function storeCity(e){
-
-   // e.preventDefault();
-    //store what city was selected:
-    //var city = citySel.value.trim();
-
-    //if(city){
-        //getUserRepos?(city);
-        //Clear the form input
-       // citySel.textContent = '';
-
-        //push it to the array
-       // storedCities.push(city);
-    //} else { alert('Please enter a valiv city name')}
-//}
-
-
-//function searchForCity(){
-
-    
-
-//}
+    if(citySearched){
+       citySel.textContent = '';
+       storedCities.push(citySearched);
+    } else { alert('Please enter a valid city name')}
+}
 //function previousSearchCity(e){
     //Target the selected city in the list to display it on the screen
     //var oldCity = e.target//.getAttribute('data-whatever);
@@ -98,11 +90,12 @@ function fiveDayWeather(data){
 //fiveDayConts.append()
 }}
 
-//Function that loads the content
-function todaysWeather(){
+//Function that loads the content for today
+function todaysWeather(data){
     let today = daily[0];
     console.log(today);
     todayCont.innerHTML = '';
+    //dx_txt =date and time text
     let cityEl = document.createElement('h1');
     let dateEl = document.createElement('h2')
     let iconEl = document.createElement('img');
