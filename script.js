@@ -5,11 +5,7 @@ let todayCont = document.getElementById('todaysWeather');
 let fiveDayConts = document.getElementById('bottomCard')
 let citySel = document.getElementById('city-selected')
 
-//Event Listeners:
-citySel.addEventListener('submit', function(){
-   // console.log(apiUrl);
- });
- searchBtn.addEventListener('click', storeCity);
+ searchBtn.addEventListener('click', searchForCity);
  //Variables:
  let storedCities = [];
 
@@ -18,9 +14,7 @@ citySel.addEventListener('submit', function(){
 
 //Gets the weather api:
 function getWeather(){
-
     var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=4ab93242dec1348d0b0205c9c67aca26`;
-    //var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=London&appid=4ab93242dec1348d0b0205c9c67aca26`;
 
 fetch(apiUrl)
   .then(function(response){
@@ -30,17 +24,19 @@ fetch(apiUrl)
     } else {alert('Error' + response.status)}})
   .then(function(data){
     console.log('APIDATA:'+ data);
-       // displayRepos(data,user);
-       //Can do something with the data returne
     })
 }
+//Takes the searched city and uses geo
+function searchForCity(){
+    let searchedCity = document.getElementById('city-selected').value;
+    console.log(searchedCity);
 //Gets the geographical thing:
-function getGeo(){
-    var geoAPI = 'http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}';
+    var geoAPI = 'http://api.openweathermap.org/geo/1.0/direct?q'+ searchedCity +'&appid=4ab93242dec1348d0b0205c9c67aca26';
+   
     fetch(geoAPI)
     .then(function(response){
         if(response.ok){
-        console.log('GEOAPI'+response)
+        console.log('GEOAPI'+ response)
         return response.json();}
     })
     .then(function(data){
@@ -121,6 +117,7 @@ function showSearched(){
         return;
     } 
 };
+showSearched();
 
 
 
