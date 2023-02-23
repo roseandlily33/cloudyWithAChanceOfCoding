@@ -61,7 +61,7 @@ function todaysWeather(data){
     let cityEl = document.createElement('h1');
     cityEl.textContent = 'City: ' + data.city.name;
     let dateEl = document.createElement('h2');
-    //dateEl.textContent = 'Date: ' + date;
+    dateEl.textContent = 'Date: ' + date;
     let iconEl = document.createElement('img');
     iconEl.src = 'http://openweathermap.org/img/wn/'+(data.list[0].weather[0].icon)+'.png';
     let tempEl = document.createElement('h2');
