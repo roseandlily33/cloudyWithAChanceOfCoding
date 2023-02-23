@@ -7,7 +7,7 @@ let fiveDayConts = document.getElementById('bottomCard')
  searchBtn.addEventListener('click', searchForCity);
  //Variables:
  let storedCities = [];
-
+ //let date = new Date(data.dt * 1000);
 //icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
 //Takes the searched city and uses geo
@@ -41,7 +41,7 @@ function getWeather(data){
     let lat = data[0].lat;
     let lon = data[0].lon;
     console.log('lan'+ lat + 'lon' + lon);
-    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon=`+lon+ `&appid=4ab93242dec1348d0b0205c9c67aca26`;
+    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon=`+lon+ `&units=metric&appid=4ab93242dec1348d0b0205c9c67aca26`;
 
 fetch(apiUrl)
   .then(function(response){
@@ -55,52 +55,51 @@ fetch(apiUrl)
     })
 }
 
+//Function that loads the content for today
+function todaysWeather(data){
+    todayCont.innerHTML = '';
+    let cityEl = document.createElement('h1');
+    cityEl.textContent = 'City: ' + data.city.name;
+    let dateEl = document.createElement('h2');
+    //dateEl.textContent = 'Date: ' + date;
+    let iconEl = document.createElement('img');
+    iconEl.src = 'http://openweathermap.org/img/wn/'+(data.list[0].weather[0].icon)+'.png';
+    let tempEl = document.createElement('h2');
+    //Math.floor - to make it a whole number
+    tempEl.textContent = 'Temperature: ' + Math.floor(data.list[0].main.temp) + ' °C';
+    let windEl = document.createElement('h2');
+    windEl.textContent = 'Wind Speed: ' + Math.floor(data.list[0].wind.speed * 3.6) +' km/h';
+    let humidityEl = document.createElement('h2');
+    humidityEl.textContent = 'Humidity: ' + data.list[0].main.humidity + ' %';
+    todayCont.append(cityEl, dateEl, iconEl, tempEl, windEl, humidityEl);
+}
+
 function fiveDayWeather(data){
 // let fiveDays = daily[1]
   for(var i = 1; i < fiveDayConts; i++){
- 
-  // let card = document.getElementByClassName('card');  
+   let card = document.getElementByClassName('bottomCard');  
    let iconCard = document.createElement('img');
    iconCard.classList = 'img';
-   //iconCard.textContent = ;
-  
+   iconEl.src = 'http://openweathermap.org/img/wn/'+(data.list[i].weather[i].icon)+'.png';
+
    let tempCard = document.createElement('h2');
    tempCard.classList = 'temperature';
-   tempCard.textContent = 'Temperature:' + data[i].main.temp;
+   tempCard.textContent = 'Temperature:' + Math.floor(data[i].main.temp) + ' °C';
 
    let humidityCard = document.createElement('h2');
    humidityCard.classList = 'humidity';
-   humidityCard.textContent = 'Humidity:' + data[i].main.humidity;
+   humidityCard.textContent = 'Humidity:' + Math.floor(data[i].main.humidity) + ' %';
 
    let windCard = document.createElement('h2');
    windCard.classList = 'wind';
-   windCard.textContent = 'Wind:' + data[i].wind.speed;
+   windCard.textContent = 'Wind:' + data[i].wind.speed + ' km/h';
 
     card.appendChild(iconCard, tempCard, humidityCard, windCard);
    //repoContainerEl.appendChild(card);
     fiveDayConts.append(card);
 }}
 
-//Function that loads the content for today
-function todaysWeather(data){
-    todayCont.innerHTML = '';
-    //dx_txt =date and time text
-    let cityEl = document.createElement('h1');
-    //cityEl.textContent = 'City:' + data.city;
-    let dateEl = document.createElement('h2');
-    //dateEl.textContent = 'Date:' + data
-    let iconEl = document.createElement('img');
-   // iconEl.src = `http://openweathermap.org/img/wn/$(data[0].weather[0].icon).png`;
-    let tempEl = document.createElement('h2');
-   // tempEl.textContent = 'Temperature:' + data.list[0].main.temp;
-    let windEl = document.createElement('h2');
-    //windEl.textContent = 'Wind Speed:' + data.list[0].wind.speed;
-    let humidityEl = document.createElement('h2');
-    //humidityEl.textContent = 'Humidity:' + data.list[0].main.humidity;
 
-    todayCont.append(cityEl, dateEl, iconEl, tempEl, windEl, humidityEl);
-
-}
 //stores results in a panel:
 function showSearched(){
     searchCont.innerHTML = '';
@@ -111,6 +110,7 @@ function showSearched(){
         let showCity = storedCities[i];
         let li = document.createElement('li');
         li.textContent = showCity;
+        li.addClass = 'searchedFor';
         searchCont.append(li);
     }
 };

@@ -20,10 +20,18 @@ body {
     font-size: 2.5rem;
     color: var(--black);
 }
+#searchResults{
+    font-size: 2em;
+    text-align: center;
+}
 .card{
     border-radius: 15px;
     border: 2.5px solid var(--blue);
     margin: 5px;
+    padding: 1em;
+}
+.temperature, .humidity, .wind{
+    font-size: 13px;
 }
 .temperature{
 
@@ -34,4 +42,8 @@ body {
 .wind{
 
 }
-
+img{
+    height: 100px;
+    width: 100px;
+   
+}
