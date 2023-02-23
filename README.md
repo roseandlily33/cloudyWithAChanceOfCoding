@@ -1,8 +1,8 @@
 # Cloudy With A Chance Of Coding
-Week 6 Project - To build a weather app with server side API's
+Week 6 Project - To build a weather app with server side API's.
 
 ## Languages Used:
-I used server side APIs, HTML, JavaScript, Bootstrap and custom CSS.
+I used server side APIs from openWeather, HTML, JavaScript, Bootstrap, dayJS and custom CSS.
 I like to use bootstrap as more as a template and not the full customization of the webpage, I find that there's a lot more options especially when it comes to colours and fonts, but bootstrap defintley takes the guess work out of a responsive design with easy to add things like nav bars, modals, etc. 
 
 ## The Vision:
@@ -17,16 +17,13 @@ Coming Soon
 Coming Soon
 
 ## Difficulites:
-This project was really hard for some parts like getting a invalid API key to work I watch hours of videos about building this and someone said something about postman, and how that checks your API key, because no matter what I did to my url it kept throwing an error at me, and I was told many times that I was writing my code wrong and to do this and that when I knew for a fact it should be returning data in some sort when you console.log() the url that your requesting, turns out it was invalid API key which I learned on postman, couldn't tell you why it was invalid but it was. But overall I think that my JavaScript skills are improving a lot, I'm understanding how the JS language executes and what to put into the code, I did a lot of pseudocoding for this one and I think that it helped.
+This project was really hard for some parts like getting a invalid API key to work I watch hours of videos about building this and someone said something about postman, and how that checks your API key, because no matter what I did to my url it kept throwing an error at me, and I was told many times that I was writing my code wrong and to do this and that when I knew for a fact it should be returning data in some sort when you console.log() the url that your requesting, turns out it was invalid API key which I learned on postman, couldn't tell you why it was invalid but it was. But overall I think that my JavaScript skills are improving a lot, I'm understanding how the JS language executes and what to put into the code, this was also the first project where I was able to figure out so much on my own and didn't need as much help as previous projects, I did a lot of pseudocoding for this one and I think that it helped.
 
 ## What I Learned:
-Things that I learned on this project are server side API keys, using the fetch method, I learned to check API keys on postman to save you hours of frustration.
-
-## Why It Stands Out:
-I think my project stands out because it has super cute styling.
+Things that I learned on this project are server side API keys, using the fetch method, I learned to check API keys on postman to save you hours of frustration. 
 
 ## Usage:
-Type in a city, and it will dynamically appear on the screen, and be saved in your local storage. 
+Type in a city, and it will dynamically appear on the screen, and be saved in your local storage, and show up in the list on the right hand side where you can see what you previously have looked at. 
 
 ## Helpful Resources:
 This video from Steve Griffith on youtube:

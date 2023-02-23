@@ -7,8 +7,6 @@ let fiveDayConts = document.getElementById('bottomCard')
  searchBtn.addEventListener('click', searchForCity);
  //Variables:
  let storedCities = [];
- //let date = new Date(data.dt * 1000);
-//icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
 //Takes the searched city and uses geo
 function searchForCity(e){
@@ -34,7 +32,6 @@ function searchForCity(e){
         localStorage.setItem('storedCities', JSON.stringify(storedCities));
         showSearched();
     }
-   
 }
 //Gets the weather api:
 function getWeather(data){
@@ -52,6 +49,7 @@ fetch(apiUrl)
   .then(function(data){
     console.log('APIDATA:'+ data);
     todaysWeather(data);
+    fiveDayWeather(data);
     })
 }
 
@@ -59,9 +57,7 @@ fetch(apiUrl)
 function todaysWeather(data){
     todayCont.innerHTML = '';
     let cityEl = document.createElement('h1');
-    cityEl.textContent = 'City: ' + data.city.name;
-    let dateEl = document.createElement('h2');
-    dateEl.textContent = 'Date: ' + date;
+    cityEl.textContent = data.city.name + '  '+ dayjs().format('MMM DD, YYYY');
     let iconEl = document.createElement('img');
     iconEl.src = 'http://openweathermap.org/img/wn/'+(data.list[0].weather[0].icon)+'.png';
     let tempEl = document.createElement('h2');
@@ -71,16 +67,16 @@ function todaysWeather(data){
     windEl.textContent = 'Wind Speed: ' + Math.floor(data.list[0].wind.speed * 3.6) +' km/h';
     let humidityEl = document.createElement('h2');
     humidityEl.textContent = 'Humidity: ' + data.list[0].main.humidity + ' %';
-    todayCont.append(cityEl, dateEl, iconEl, tempEl, windEl, humidityEl);
+    todayCont.append(cityEl, iconEl, tempEl, windEl, humidityEl);
 }
 
 function fiveDayWeather(data){
-// let fiveDays = daily[1]
-  for(var i = 1; i < fiveDayConts; i++){
-   let card = document.getElementByClassName('bottomCard');  
+  for(var i = 1; i < 5; i++){
+   let bottomCard = document.createElement('div');
+   bottomCard.addClass = 'col p-3 card bottomCard';
    let iconCard = document.createElement('img');
    iconCard.classList = 'img';
-   iconEl.src = 'http://openweathermap.org/img/wn/'+(data.list[i].weather[i].icon)+'.png';
+   iconCard.src = 'http://openweathermap.org/img/wn/'+(data.list[i].weather[i].icon)+'.png';
 
    let tempCard = document.createElement('h2');
    tempCard.classList = 'temperature';
@@ -94,11 +90,10 @@ function fiveDayWeather(data){
    windCard.classList = 'wind';
    windCard.textContent = 'Wind:' + data[i].wind.speed + ' km/h';
 
-    card.appendChild(iconCard, tempCard, humidityCard, windCard);
+    bottomCard.appendChild(iconCard, tempCard, humidityCard, windCard);
    //repoContainerEl.appendChild(card);
     fiveDayConts.append(card);
 }}
-
 
 //stores results in a panel:
 function showSearched(){
