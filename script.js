@@ -2,7 +2,7 @@
 let searchBtn = document.getElementById('search-btn');
 let searchCont = document.getElementById('searchList');
 let todayCont = document.getElementById('todaysWeather');
-let fiveDayConts = document.getElementById('bottomCard')
+let fiveDayCont = document.getElementById('fiveDaysCont')
 
  searchBtn.addEventListener('click', searchForCity);
  //Variables:
@@ -71,7 +71,7 @@ function todaysWeather(data){
 }
 
 function fiveDayWeather(data){
-  for(var i = 1; i < 5; i++){
+  for(var i = 0; i < 5; i++){
    let bottomCard = document.createElement('div');
    bottomCard.addClass = 'col p-3 card bottomCard';
    let iconCard = document.createElement('img');
@@ -91,8 +91,7 @@ function fiveDayWeather(data){
    windCard.textContent = 'Wind:' + data[i].wind.speed + ' km/h';
 
     bottomCard.appendChild(iconCard, tempCard, humidityCard, windCard);
-   //repoContainerEl.appendChild(card);
-    fiveDayConts.append(card);
+    fiveDayCont.appendChild(bottomCard);
 }}
 
 //stores results in a panel:
