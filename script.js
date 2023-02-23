@@ -10,20 +10,6 @@ let fiveDayConts = document.getElementById('bottomCard')
 
 //icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
-//Gets the weather api:
-function getWeather(){
-    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon`+lon+ `&appid=4ab93242dec1348d0b0205c9c67aca26`;
-
-fetch(apiUrl)
-  .then(function(response){
-     if(response.ok){
-        console.log(response);
-         response.json();
-    } else {alert('Error' + response.status)}})
-  .then(function(data){
-    console.log('APIDATA:'+ data);
-    })
-}
 //Takes the searched city and uses geo
 function searchForCity(e){
     e.preventDefault();
@@ -36,22 +22,37 @@ function searchForCity(e){
     .then(function(response){
         if(response.ok){
         console.log('GEOAPI'+ response)
-        return response.json();}
+         return  response.json();}
     })
     .then(function(data){
         console.log('GEOAPI' + data);
-        todaysWeather(data);
-        //fiveDayWeather(data);
-        //do something with the geo data
+        getWeather(data);
     })
-    //Make sure city is valid to be pushed into array and stored:
+    //City is stored in the array of search results in localStorage:
     if(searchedCity){
         storedCities.push(searchedCity);
         localStorage.setItem('storedCities', JSON.stringify(storedCities));
         showSearched();
     }
-    return;
-    console.log(storedCities);
+   
+}
+//Gets the weather api:
+function getWeather(data){
+    let lat = data[0].lat;
+    let lon = data[0].lon;
+    console.log('lan'+ lat + 'lon' + lon);
+    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=`+lat+`&lon=`+lon+ `&appid=4ab93242dec1348d0b0205c9c67aca26`;
+
+fetch(apiUrl)
+  .then(function(response){
+     if(response.ok){
+        console.log(response);
+        return response.json();
+    } else {alert('Error' + response.status)}})
+  .then(function(data){
+    console.log('APIDATA:'+ data);
+    todaysWeather(data);
+    })
 }
 
 function fiveDayWeather(data){
