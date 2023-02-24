@@ -2,7 +2,6 @@
 let searchBtn = document.getElementById('search-btn');
 let searchCont = document.getElementById('searchList');
 let todayCont = document.getElementById('todaysWeather');
-//let fiveDayCont = document.getElementById('fiveDaysCont');
 let cardA = document.getElementById('cardA')
 let cardB = document.getElementById('cardB');
 let cardC = document.getElementById('cardC');
@@ -12,7 +11,6 @@ let cardE = document.getElementById('cardE');
  searchBtn.addEventListener('click', searchForCity);
  //Variables:
  let storedCities = [];
-
 //Takes the searched city and uses geo
 function searchForCity(e){
     e.preventDefault();

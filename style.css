@@ -44,6 +44,7 @@ body {
 img{
     height: 100px;
     width: 100px;
+    padding: 1em;
    
 }
 #search-btn:hover{
@@ -53,4 +54,5 @@ img{
 }
 h5{
     font-size: 15px;
+    padding: 0.3em;
 }
