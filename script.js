@@ -76,37 +76,66 @@ function todaysWeather(data){
 }
 function fiveDayWeather(data){
     console.log(data);
-    //cardA.textContent = 
-    //let iconA = document.createElement('img');
-    cardA.textContent = 'http://openweathermap.org/img/wn/'+(data.list[7].weather[0].icon)+'.png';
-    //let tempA = document.createElement('h3');
-    cardA.textContent = 'Temperature '+ Math.floor(data.list[7].main.temp) + ' °C';
-    cardA.textContent = 'Humidity:' + Math.floor(data.list[7].main.humidity) + ' %';
-    cardA.textContent = 'Wind: ' + Math.floor(data.list[7].wind.speed) + ' km/h';
-   //cardA.append(iconA);
-    //cardB.textContent = 
-    cardB.textContent = 'http://openweathermap.org/img/wn/'+(data.list[15].weather[0].icon)+'.png';
-    cardB.textContent = 'Temperature: ' + Math.floor(data.list[15].main.temp) + ' °C';
-    cardB.textContent = 'Humidity: ' + Math.floor(data.list[15].main.humidity) + ' %';
-    cardB.textContent = 'Wind: ' + Math.floor(data.list[15].wind.speed) + ' km/h';
-    
-    //cardC.textContent = 
-    cardC.textContent = 'http://openweathermap.org/img/wn/'+(data.list[23].weather[0].icon)+'.png';
-    cardC.textContent = 'Temperature: ' + Math.floor(data.list[23].main.temp) + ' °C';
-    cardC.textContent = 'Humidity: ' + Math.floor(data.list[23].main.humidity) + ' %';
-    cardC.textContent = 'Wind: ' + Math.floor(data.list[23].wind.speed) + ' km/h';
+    let dateA = document.createElement('h5');
+    dateA.textContent = data.list[6].dx_txt;
+    let iconA = document.createElement('img');
+    iconA.textContent = 'http://openweathermap.org/img/wn/'+(data.list[6].weather[0].icon)+'.png';
+    let tempA = document.createElement('h5');
+    tempA.textContent = 'Temperature '+ Math.floor(data.list[6].main.temp) + ' °C';
+    let humA = document.createElement('h5');
+    humA.textContent = 'Humidity:' + Math.floor(data.list[6].main.humidity) + ' %';
+    let windA = document.createElement('h5');
+    windA.textContent = 'Wind: ' + Math.floor(data.list[6].wind.speed) + ' km/h';
+    cardA.append(dateA, iconA, tempA, humA, windA);
 
-   //cardD.textContent = 
-    cardD.textContent = 'http://openweathermap.org/img/wn/'+(data.list[31].weather[0].icon)+'.png';
-    cardD.textContent = 'Temperature: ' + Math.floor(data.list[31].main.temp) + ' °C';
-    cardD.textContent = 'Humidity: ' + Math.floor(data.list[31].main.humidity) + ' %';
-    cardD.textContent = 'Wind: ' + Math.floor(data.list[31].wind.speed) + ' km/h';
+    let dateB= document.createElement('h5');
+    dateB.textContent = data.list[14].dx_txt;
+    let iconB = document.createElement('img');
+    iconB.textContent = 'http://openweathermap.org/img/wn/'+(data.list[14].weather[0].icon)+'.png';
+    let tempB = document.createElement('h5');
+    tempB.textContent = 'Temperature: ' + Math.floor(data.list[14].main.temp) + ' °C';
+    let humB = document.createElement('h5');
+    humB.textContent = 'Humidity: ' + Math.floor(data.list[14].main.humidity) + ' %';
+    let windB = document.createElement('h5');
+    windB.textContent = 'Wind: ' + Math.floor(data.list[14].wind.speed) + ' km/h';
+    cardB.append(dateB, iconB, tempB, humB, windB);
     
-    //cardE.textContent = 
-    cardE.textContent = 'http://openweathermap.org/img/wn/'+(data.list[39].weather[0].icon)+'.png';
-    cardE.textContent = 'Temperature: ' + Math.floor(data.list[39].main.temp) + ' °C';
-    cardE.textContent = 'Humidity: ' + Math.floor(data.list[39].main.humidity) + ' %';
-    cardE.textContent = 'Wind: ' + Math.floor(data.list[39].wind.speed) + ' km/h';
+
+    let dateC = document.createElement('h5');
+    dateC.textContent = data.list[22].dx_txt;
+    let iconC = document.createElement('img');
+    iconC.textContent = 'http://openweathermap.org/img/wn/'+(data.list[22].weather[0].icon)+'.png';
+    let tempC = document.createElement('h5');
+    tempC.textContent = 'Temperature: ' + Math.floor(data.list[22].main.temp) + ' °C';
+    let humC = document.createElement('h5');
+    humC.textContent = 'Humidity: ' + Math.floor(data.list[22].main.humidity) + ' %';
+    let windC = document.createElement('h5');
+    windC.textContent = 'Wind: ' + Math.floor(data.list[22].wind.speed) + ' km/h';
+    cardC.append(dateC, iconC, tempC, humC, windC);
+
+    let dateD = document.createElement('h5');
+    dateD.textContent = data.list[30].dx_txt;
+    let iconD = document.createElement('img');
+    iconD.textContent = 'http://openweathermap.org/img/wn/'+(data.list[30].weather[0].icon)+'.png';
+    let tempD = document.createElement('h5');
+    tempD.textContent = 'Temperature: ' + Math.floor(data.list[30].main.temp) + ' °C';
+    let humD = document.createElement('h5');
+    humD.textContent = 'Humidity: ' + Math.floor(data.list[30].main.humidity) + ' %';
+    let windD = document.createElement('h5');
+    windD.textContent = 'Wind: ' + Math.floor(data.list[30].wind.speed) + ' km/h';
+    cardD.append(dateD, iconD, tempD, humD, windD);
+    
+    let dateE = document.createElement('h5');
+    dateE.textContent = data.list[38].dx_txt;
+    let iconE = document.createElement('img');
+    iconE.textContent = 'http://openweathermap.org/img/wn/'+(data.list[38].weather[0].icon)+'.png';
+    let tempE = document.createElement('h5');
+    tempE.textContent = 'Temperature: ' + Math.floor(data.list[38].main.temp) + ' °C';
+    let humE = document.createElement('h5');
+    humE.textContent = 'Humidity: ' + Math.floor(data.list[38].main.humidity) + ' %';
+    let windE = document.createElement('h5');
+    windE.textContent = 'Wind: ' + Math.floor(data.list[38].wind.speed) + ' km/h';
+    cardE.append(dateE, iconE, tempE, humE, windE);
 }
 
 //stores results in a panel:
@@ -124,10 +153,3 @@ function showSearched(){
     }
 };
 showSearched();
-
-
-
-
-
-
-

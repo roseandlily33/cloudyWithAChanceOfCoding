@@ -51,3 +51,6 @@ img{
     border: none;
     color: var(--black);
 }
+h5{
+    font-size: 15px;
+}
