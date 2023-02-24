@@ -30,7 +30,7 @@ This was the first project since the week 3 that I feel like I really got a good
 Things that I learned on this project are server side API keys, using the fetch method, I learned to check API keys on postman to save you hours of frustration. I also learned how to select the things that you want from the API information that you get back and how to display that on the screen.
 
 ## Usage:
-Type in a city, and it will dynamically appear on the screen, and be saved in your local storage, and show up in the list on the right hand side where you can see what you previously have looked at. The weather for the main section is recent, and the bottom shows the weather for the next 5 days at 12pm.
+Type in a city, and it will dynamically appear on the screen, and be saved in your local storage, and show up in the list on the right hand side where you can see what you previously have looked at. The weather for the main section is recent, and the bottom shows the weather for the next 5 days at the specified time. 
 
 ## License: 
 MIT

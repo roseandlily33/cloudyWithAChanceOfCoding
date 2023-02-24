@@ -7,7 +7,6 @@ let cardB = document.getElementById('cardB');
 let cardC = document.getElementById('cardC');
 let cardD = document.getElementById('cardD');
 let cardE = document.getElementById('cardE');
-
  searchBtn.addEventListener('click', searchForCity);
  //Variables:
  let storedCities = [];
@@ -142,7 +141,6 @@ function fiveDayWeather(data){
     windE.textContent = 'Wind: ' + Math.floor(data.list[38].wind.speed) + ' km/h';
     cardE.append(dateE, iconE, tempE, humE, windE);
 }
-
 //stores results in a panel:
 function showSearched(){
     searchCont.innerHTML = '';
@@ -157,4 +155,13 @@ function showSearched(){
         searchCont.append(li);
     }
 };
+ //When searched city is clicked it searches for it again
+ searchCont.addEventListener('click', function(e){
+    e.preventDefault();
+    let clicked = e.target;
+    if(clicked.matches('li')){
+        console.log(searchForCity(e));
+        searchForCity();
+    }
+});
 showSearched();
