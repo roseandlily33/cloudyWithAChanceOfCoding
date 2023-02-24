@@ -17,7 +17,7 @@ There is 2 different versions of icons that I tried out in the link for the icon
 
 
 ## Deployed Link:
-Coming Soon
+https://roseandlily33.github.io/cloudyWithAChanceOfCoding/
 
 ## Difficulites:
 This project was really hard for getting the API to work, I had an invalid API key to work I watch hours of videos about building this and someone said something about postman, and how that checks your API key, because no matter what I did to my url it kept throwing an error at me, and I was told many times that I was writing my code wrong and to do this and that when I knew for a fact it should be returning data in some sort when you console.log() the url that your requesting, turns out it was invalid API key. 
