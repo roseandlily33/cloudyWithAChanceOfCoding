@@ -161,6 +161,8 @@ function showSearched(){
     if(clicked.matches('li')){
         console.log(searchForCity(e));
         searchForCity(e);
+    } else {
+        return;
     }
 });
 showSearched();
