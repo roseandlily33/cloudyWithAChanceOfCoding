@@ -13,7 +13,8 @@ There is 2 different versions of icons that I tried out in the link for the icon
 
 
 ## Images:
-Coming Soon
+<img width="1445" alt="Screenshot 2023-02-24 at 12 29 44 PM" src="https://user-images.githubusercontent.com/109821108/221234030-31e0fbbd-e8e6-4a80-9092-b0558aefb7f9.png">
+
 
 ## Deployed Link:
 Coming Soon
