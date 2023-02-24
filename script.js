@@ -63,7 +63,7 @@ function todaysWeather(data){
     let cityEl = document.createElement('h1');
     cityEl.textContent = data.city.name + '  '+ dayjs().format('MMM DD, YYYY');
     let iconEl = document.createElement('img');
-    iconEl.src = 'http://openweathermap.org/img/w/'+(data.list[0].weather[0].icon)+'.png';
+    iconEl.src = 'http://openweathermap.org/img/wn/'+(data.list[0].weather[0].icon)+'.png';
     let tempEl = document.createElement('h2');
     //Math.floor - to make it a whole number
     tempEl.textContent = 'Temperature: ' + Math.floor(data.list[0].main.temp) + ' °C';
@@ -84,7 +84,7 @@ function fiveDayWeather(data){
     let dateA = document.createElement('h5');
     dateA.textContent = data.list[6].dt_txt;
     let iconA = document.createElement('img');
-    iconA.src = 'http://openweathermap.org/img/w/'+(data.list[6].weather[0].icon)+'.png';
+    iconA.src = 'http://openweathermap.org/img/wn/'+(data.list[6].weather[0].icon)+'.png';
     let tempA = document.createElement('h5');
     tempA.textContent = 'Temperature '+ Math.floor(data.list[6].main.temp) + ' °C';
     let humA = document.createElement('h5');
@@ -96,7 +96,7 @@ function fiveDayWeather(data){
     let dateB= document.createElement('h5');
     dateB.textContent = data.list[14].dt_txt;
     let iconB = document.createElement('img');
-    iconB.src = 'http://openweathermap.org/img/w/'+(data.list[14].weather[0].icon)+'.png';
+    iconB.src = 'http://openweathermap.org/img/wn/'+(data.list[14].weather[0].icon)+'.png';
     let tempB = document.createElement('h5');
     tempB.textContent = 'Temperature: ' + Math.floor(data.list[14].main.temp) + ' °C';
     let humB = document.createElement('h5');
@@ -109,7 +109,7 @@ function fiveDayWeather(data){
     let dateC = document.createElement('h5');
     dateC.textContent = data.list[22].dt_txt;
     let iconC = document.createElement('img');
-    iconC.src = 'http://openweathermap.org/img/w/'+(data.list[22].weather[0].icon)+'.png';
+    iconC.src = 'http://openweathermap.org/img/wn/'+(data.list[22].weather[0].icon)+'.png';
     let tempC = document.createElement('h5');
     tempC.textContent = 'Temperature: ' + Math.floor(data.list[22].main.temp) + ' °C';
     let humC = document.createElement('h5');
@@ -121,7 +121,7 @@ function fiveDayWeather(data){
     let dateD = document.createElement('h5');
     dateD.textContent = data.list[30].dt_txt;
     let iconD = document.createElement('img');
-    iconD.src = 'http://openweathermap.org/img/w/'+(data.list[30].weather[0].icon)+'.png';
+    iconD.src = 'http://openweathermap.org/img/wn/'+(data.list[30].weather[0].icon)+'.png';
     let tempD = document.createElement('h5');
     tempD.textContent = 'Temperature: ' + Math.floor(data.list[30].main.temp) + ' °C';
     let humD = document.createElement('h5');
@@ -133,7 +133,7 @@ function fiveDayWeather(data){
     let dateE = document.createElement('h5');
     dateE.textContent = data.list[38].dt_txt;
     let iconE = document.createElement('img');
-    iconE.src = 'http://openweathermap.org/img/w/'+(data.list[38].weather[0].icon)+'.png';
+    iconE.src = 'http://openweathermap.org/img/wn/'+(data.list[38].weather[0].icon)+'.png';
     let tempE = document.createElement('h5');
     tempE.textContent = 'Temperature: ' + Math.floor(data.list[38].main.temp) + ' °C';
     let humE = document.createElement('h5');
