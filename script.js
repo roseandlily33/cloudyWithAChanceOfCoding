@@ -29,12 +29,11 @@ function searchForCity(e){
         getWeather(data);
     })
     //City is stored in the array of search results in localStorage:
-    if(searchedCity){
+    if(searchedCity && !storedCities.includes(searchedCity)){
         storedCities.push(searchedCity);
         localStorage.setItem('storedCities', JSON.stringify(storedCities));
         showSearched();
-    }
-   
+    } 
 }
 //Gets the weather api:
 function getWeather(data){
@@ -161,7 +160,7 @@ function showSearched(){
     let clicked = e.target;
     if(clicked.matches('li')){
         console.log(searchForCity(e));
-        searchForCity();
+        searchForCity(e);
     }
 });
 showSearched();
