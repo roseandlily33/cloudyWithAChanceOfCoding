@@ -29,17 +29,9 @@ body {
     margin: 5px;
     padding: 1em;
 }
-.temperature, .humidity, .wind{
-    font-size: 13px;
-}
-.temperature{
-
-}
-.humidity{
-
-}
-.wind{
-
+li{
+    list-style-type: none;
+    font-size: 20px;
 }
 img{
     height: 100px;

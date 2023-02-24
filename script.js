@@ -35,6 +35,7 @@ function searchForCity(e){
         localStorage.setItem('storedCities', JSON.stringify(storedCities));
         showSearched();
     }
+   
 }
 //Gets the weather api:
 function getWeather(data){
@@ -62,7 +63,7 @@ function todaysWeather(data){
     let cityEl = document.createElement('h1');
     cityEl.textContent = data.city.name + '  '+ dayjs().format('MMM DD, YYYY');
     let iconEl = document.createElement('img');
-    iconEl.src = 'http://openweathermap.org/img/wn/'+(data.list[0].weather[0].icon)+'.png';
+    iconEl.src = 'http://openweathermap.org/img/w/'+(data.list[0].weather[0].icon)+'.png';
     let tempEl = document.createElement('h2');
     //Math.floor - to make it a whole number
     tempEl.textContent = 'Temperature: ' + Math.floor(data.list[0].main.temp) + ' °C';
@@ -73,11 +74,17 @@ function todaysWeather(data){
     todayCont.append(cityEl, iconEl, tempEl, windEl, humidityEl);
 }
 function fiveDayWeather(data){
+    //Fixes the problem that the next info was just going underneath the old
+    cardA.innerHTML = '';
+    cardB.innerHTML = '';
+    cardC.innerHTML = '';
+    cardD.innerHTML = '';
+    cardE.innerHTML = '';
     console.log(data);
     let dateA = document.createElement('h5');
-    dateA.textContent = data.list[6].dx_txt;
+    dateA.textContent = data.list[6].dt_txt;
     let iconA = document.createElement('img');
-    iconA.textContent = 'http://openweathermap.org/img/wn/'+(data.list[6].weather[0].icon)+'.png';
+    iconA.src = 'http://openweathermap.org/img/w/'+(data.list[6].weather[0].icon)+'.png';
     let tempA = document.createElement('h5');
     tempA.textContent = 'Temperature '+ Math.floor(data.list[6].main.temp) + ' °C';
     let humA = document.createElement('h5');
@@ -87,9 +94,9 @@ function fiveDayWeather(data){
     cardA.append(dateA, iconA, tempA, humA, windA);
 
     let dateB= document.createElement('h5');
-    dateB.textContent = data.list[14].dx_txt;
+    dateB.textContent = data.list[14].dt_txt;
     let iconB = document.createElement('img');
-    iconB.textContent = 'http://openweathermap.org/img/wn/'+(data.list[14].weather[0].icon)+'.png';
+    iconB.src = 'http://openweathermap.org/img/w/'+(data.list[14].weather[0].icon)+'.png';
     let tempB = document.createElement('h5');
     tempB.textContent = 'Temperature: ' + Math.floor(data.list[14].main.temp) + ' °C';
     let humB = document.createElement('h5');
@@ -100,9 +107,9 @@ function fiveDayWeather(data){
     
 
     let dateC = document.createElement('h5');
-    dateC.textContent = data.list[22].dx_txt;
+    dateC.textContent = data.list[22].dt_txt;
     let iconC = document.createElement('img');
-    iconC.textContent = 'http://openweathermap.org/img/wn/'+(data.list[22].weather[0].icon)+'.png';
+    iconC.src = 'http://openweathermap.org/img/w/'+(data.list[22].weather[0].icon)+'.png';
     let tempC = document.createElement('h5');
     tempC.textContent = 'Temperature: ' + Math.floor(data.list[22].main.temp) + ' °C';
     let humC = document.createElement('h5');
@@ -112,9 +119,9 @@ function fiveDayWeather(data){
     cardC.append(dateC, iconC, tempC, humC, windC);
 
     let dateD = document.createElement('h5');
-    dateD.textContent = data.list[30].dx_txt;
+    dateD.textContent = data.list[30].dt_txt;
     let iconD = document.createElement('img');
-    iconD.textContent = 'http://openweathermap.org/img/wn/'+(data.list[30].weather[0].icon)+'.png';
+    iconD.src = 'http://openweathermap.org/img/w/'+(data.list[30].weather[0].icon)+'.png';
     let tempD = document.createElement('h5');
     tempD.textContent = 'Temperature: ' + Math.floor(data.list[30].main.temp) + ' °C';
     let humD = document.createElement('h5');
@@ -124,9 +131,9 @@ function fiveDayWeather(data){
     cardD.append(dateD, iconD, tempD, humD, windD);
     
     let dateE = document.createElement('h5');
-    dateE.textContent = data.list[38].dx_txt;
+    dateE.textContent = data.list[38].dt_txt;
     let iconE = document.createElement('img');
-    iconE.textContent = 'http://openweathermap.org/img/wn/'+(data.list[38].weather[0].icon)+'.png';
+    iconE.src = 'http://openweathermap.org/img/w/'+(data.list[38].weather[0].icon)+'.png';
     let tempE = document.createElement('h5');
     tempE.textContent = 'Temperature: ' + Math.floor(data.list[38].main.temp) + ' °C';
     let humE = document.createElement('h5');
