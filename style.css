@@ -5,7 +5,6 @@
     --black: #031e33;
     --grey: #c7c6c6;
     --yellow: #F6DB8E;
-
 }
 
 body {
@@ -26,7 +25,7 @@ body {
 }
 .card{
     border-radius: 15px;
-    border: 2.5px solid var(--blue);
+    border: 3.5px solid var(--blue);
     margin: 5px;
     padding: 1em;
 }
@@ -46,4 +45,9 @@ img{
     height: 100px;
     width: 100px;
    
+}
+#search-btn:hover{
+    background-color: var(--yellow);
+    border: none;
+    color: var(--black);
 }
