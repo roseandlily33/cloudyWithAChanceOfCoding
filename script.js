@@ -174,7 +174,7 @@ function showSearched(){
  //searchCont.addEventListener('click', function(e){
   //  e.preventDefault();
   //  let clicked = e.target.textContent;
-  //  if(clicked.includes('li')){
+  //  if(clicked){
    //    console.log(searchForCity(e));
     //    searchForCity(e);
    //} else {
