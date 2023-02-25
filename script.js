@@ -7,10 +7,15 @@ let cardB = document.getElementById('cardB');
 let cardC = document.getElementById('cardC');
 let cardD = document.getElementById('cardD');
 let cardE = document.getElementById('cardE');
- searchBtn.addEventListener('click', searchForCity);
+ searchBtn.addEventListener('click', citySearch);
  //Variables:
  let storedCities = [];
- let searchedCity = document.getElementById('city-selected').value;
+ function citySearch(e){
+    e.preventDefault();
+    let searchedCity = document.getElementById('city-selected').value;
+    searchForCity(searchedCity);
+ }
+
 //Takes the searched city and uses geo
 function searchForCity(searchedCity){
     console.log(searchedCity);
@@ -154,30 +159,13 @@ function showSearched(){
     }
 };
 
-
 //Option #1
  //When searched city is clicked it searches for it again
  searchCont.addEventListener('click', function(e){
     e.preventDefault();
-    let clicked = e.target;
-    if(clicked.matches('li')){
-        console.log(searchForCity(e));
-        searchForCity(clicked);
-    } else {
-        return;
-    }
+    let clicked = e.target.textContent;
+    console.log(clicked);
+    searchForCity(clicked);
     
 });
-//Option #2
- //When searched city is clicked it searches for it again
- //searchCont.addEventListener('click', function(e){
-  //  e.preventDefault();
-  //  let clicked = e.target.textContent;
-  //  if(clicked){
-   //    console.log(searchForCity(e));
-    //    searchForCity(e);
-   //} else {
-    //    return;
- //  }
-//});
 showSearched();
