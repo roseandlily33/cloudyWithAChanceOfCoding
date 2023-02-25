@@ -11,6 +11,11 @@ body {
     font-family: var(--Heading2);
     background-color: white;
 }
+.bottomCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .navbar{
     background-color: var(--blue);
 }
@@ -47,6 +52,7 @@ img{
     background-color: var(--yellow);
     border: none;
     color: var(--black);
+    cursor: pointer;
 }
 h5{
     font-size: 15px;
