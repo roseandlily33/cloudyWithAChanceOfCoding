@@ -10,10 +10,9 @@ let cardE = document.getElementById('cardE');
  searchBtn.addEventListener('click', searchForCity);
  //Variables:
  let storedCities = [];
+ let searchedCity = document.getElementById('city-selected').value;
 //Takes the searched city and uses geo
-function searchForCity(e){
-    e.preventDefault();
-   let searchedCity = document.getElementById('city-selected').value;
+function searchForCity(searchedCity){
     console.log(searchedCity);
 //Gets the geographical thing:
     var geoAPI = 'https://api.openweathermap.org/geo/1.0/direct?q='+ searchedCity +'&appid=4ab93242dec1348d0b0205c9c67aca26';
@@ -163,7 +162,7 @@ function showSearched(){
     let clicked = e.target;
     if(clicked.matches('li')){
         console.log(searchForCity(e));
-        searchForCity(e);
+        searchForCity(clicked);
     } else {
         return;
     }
