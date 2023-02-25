@@ -22,13 +22,13 @@ https://roseandlily33.github.io/cloudyWithAChanceOfCoding/
 
 ## Difficulites:
 This project was really hard for getting the API to work, I had an invalid API key to work I watch hours of videos about building this and someone said something about postman, and how that checks your API key, because no matter what I did to my url it kept throwing an error at me, and I was told many times that I was writing my code wrong and to do this and that when I knew for a fact it should be returning data in some sort when you console.log() the url that your requesting, turns out it was invalid API key. 
-I tried to do a for loop for the 5 day weather on the bottom, but it didn't go so well so I scrapped that idea, and just did each card individually. I also had trouble with clicking the city name and getting it to research, but I also haven't done anything like that before, so it was a great learning experience. 
+I tried to do a for loop for the 5 day weather on the bottom, but it didn't go so well so I scrapped that idea, and just did each card individually. I also had trouble with clicking the city name and getting it to research, but I also haven't done anything like that before, so it was a great learning experience.
 
 ## Successes:
 This was the first project since the week 3 that I feel like I really got a good grasp and knew what to do exactly what I was doing and could execute a VERY large portion of it on my own and only really needed help for minor things like I couldn't get something to work because it was spelled wrong and it was one of those things where you just become blind to it. I can tell I'm really turning a corner with JavaScript and truly understanding how it works and what you can do with it, and I am so happy about that!
 
 ## What I Learned:
-Things that I learned on this project are server side API keys, using the fetch method, I learned to check API keys on postman to save you hours of frustration. I also learned how to select the things that you want from the API information that you get back and how to display that on the screen.
+Things that I learned on this project are server side API keys, using the fetch method, I learned to check API keys on postman to save you hours of frustration. I also learned how to select the things that you want from the API information that you get back and how to display that on the screen, and how to use e.target which I was kinda unfamiliar with. 
 
 ## Usage:
 Type in a city, and it will dynamically appear on the screen, and be saved in your local storage, and show up in the list on the right hand side where you can see what you previously have looked at. The weather for the main section is recent, and the bottom shows the weather for the next 5 days at the specified time. 
